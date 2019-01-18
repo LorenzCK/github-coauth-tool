@@ -6,6 +6,7 @@
 
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>gitcoauth</ToolCommandName>
+    <Title>GitCoAuth global tool</Title>
     <PackageOutputPath>../../nupkg</PackageOutputPath>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Lorenz Cuno Klopfenstein</Authors>
@@ -13,7 +14,14 @@
     <Product />
     <PackageIconUrl>https://raw.githubusercontent.com/LorenzCK/github-coauth-tool/master/graphics/gitcoauth-logo-256.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/LorenzCK/github-coauth-tool</RepositoryUrl>
-    <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    
+    <Description>GitCoAuth is a simple .NET Core Global Tool that will help you generate co-authorship commit lines, as you should.
+
+Run the tool passing in your co-author's GitHub username and it will generate the correct commit message trailer to add (and copy it to your clipboard).</Description>
+    <PackageReleaseNotes></PackageReleaseNotes>
+    <PackageTags>global-tool global-tools github co-authored co-authoring commit git</PackageTags>
+    <PackageId>dotnet-gitcoauth</PackageId>
   </PropertyGroup>
 
   <ItemGroup>
