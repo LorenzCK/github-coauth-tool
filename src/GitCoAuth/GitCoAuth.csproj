@@ -7,6 +7,13 @@
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>gitcoauth</ToolCommandName>
     <PackageOutputPath>../../nupkg</PackageOutputPath>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Lorenz Cuno Klopfenstein</Authors>
+    <Company />
+    <Product />
+    <PackageIconUrl>https://raw.githubusercontent.com/LorenzCK/github-coauth-tool/master/graphics/gitcoauth-logo-256.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/LorenzCK/github-coauth-tool</RepositoryUrl>
+    <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
   </PropertyGroup>
 
   <ItemGroup>
