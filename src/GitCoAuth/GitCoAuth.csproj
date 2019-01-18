@@ -9,4 +9,8 @@
     <PackageOutputPath>../../nupkg</PackageOutputPath>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="RestSharp" Version="106.6.7" />
+  </ItemGroup>
+
 </Project>
