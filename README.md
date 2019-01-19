@@ -1,4 +1,4 @@
-![Logo](https://raw.githubusercontent.com/LorenzCK/github-coauth-tool/master/graphics/gitcoauth-logo-256.png)
+![Logo](https://raw.githubusercontent.com/LorenzCK/github-coauth-tool/master/graphics/gitcoauth-logo-128.png)
 
 # GitCoAuth
 
@@ -18,9 +18,10 @@ gitcoauth lorenzck
 will output the following line (and it will also automatically try to copy it to your clipboard):
 
 ```
+Co-authored-by: Lorenz Cuno Klopfenstein <lorenzck@users.noreply.github.com>
 ```
 
-Append the line to your commit message [following this GitHub guide](https://github.blog/2018-01-29-commit-together-with-co-authors/), that is leaving at least one empty line between the commit message and the co-authorship trailer.
+Append the line to your commit message [following this GitHub guide](https://github.blog/2018-01-29-commit-together-with-co-authors/) (that is leaving at least one empty line between the commit message and the co-authorship trailer).
 Once committed and pushed to GitHub, you and your co-authors will all have ownership of the commit.&nbsp;✌
 
 ## Installation
