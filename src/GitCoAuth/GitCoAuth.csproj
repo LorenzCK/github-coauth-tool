@@ -13,6 +13,7 @@
     <Company />
     <Product />
     <PackageIconUrl>https://raw.githubusercontent.com/LorenzCK/github-coauth-tool/master/graphics/gitcoauth-logo-256.png</PackageIconUrl>
+	<PackageIconUrl>gitcoauth-logo-128.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/LorenzCK/github-coauth-tool</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     
@@ -22,7 +23,14 @@ Run the tool passing in your co-author's GitHub username and it will generate th
     <PackageReleaseNotes></PackageReleaseNotes>
     <PackageTags>global-tool global-tools github co-authored co-authoring commit git</PackageTags>
     <PackageId>dotnet-gitcoauth</PackageId>
+	<Version>1.1.0</Version>
+    <AssemblyVersion>1.1.0</AssemblyVersion>
+    <FileVersion>1.1.0</FileVersion>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\graphics\gitcoauth-logo-128.png" Pack="true" PackagePath="\" Link="gitcoauth-logo-128.png" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="RestSharp" Version="107.3.0" />
