@@ -1,22 +1,23 @@
 ﻿using System;
+using System.Threading.Tasks;
 using RestSharp;
 
 namespace GitCoAuth {
 
     class Program {
 
-        static int Main(string[] args) {
+        async static Task<int> Main(string[] args) {
             if(args.Length != 1) {
                 PrintHelp();
                 return 1;
             }
 
-            (var name, var email) = GetUserData(args[0]);
+            (var name, var email) = await GetUserData(args[0]);
 
             var output = string.Format("Co-authored-by: {0} <{1}>", name, email);
 
             try {
-                TextCopy.Clipboard.SetText(output);
+                await TextCopy.ClipboardService.SetTextAsync(output);
             }
             catch(Exception ex) {
                 Console.Error.WriteLine("Failed to copy to clipboard ({0})", ex.Message);
@@ -31,20 +32,21 @@ namespace GitCoAuth {
             Console.Error.WriteLine("Prints out a commit message trailer that indicates that GitHub user <username> contributed to a commit (and copied it to clipboard, if possible).");
         }
 
-        private static (string Name, string Email) GetUserData(string username) {
+        private static async Task<(string Name, string Email)> GetUserData(string username) {
             var client = new RestClient("https://api.github.com");
-            var req = new RestRequest($"/users/{username}", Method.GET, DataFormat.Json);
-            var resp = client.Execute<UserProfile>(req);
 
-            if (!resp.IsSuccessful) {
-                Console.Error.WriteLine("Failed to get user data");
-                return (username, GetDefaultEmail(username));
+            try {
+                var resp = await client.GetJsonAsync<UserProfile>($"/users/{username}");
+
+                return (
+                    resp.Name ?? username,
+                    resp.Email ?? GetDefaultEmail(username)
+                );
             }
-
-            return (
-                resp.Data.Name ?? username,
-                resp.Data.Email ?? GetDefaultEmail(username)
-            );
+            catch (Exception ex) {
+                Console.Error.WriteLine("Failed to get user data ({0})", ex.Message);
+                return (username, GetDefaultEmail(username));
+            }            
         }
 
         private static string GetDefaultEmail(string username) {
