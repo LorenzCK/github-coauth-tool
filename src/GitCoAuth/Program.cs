@@ -6,6 +6,11 @@ namespace GitCoAuth {
 
     class Program {
 
+        class UserProfile {
+            public string Name { get; set; }
+            public string Email { get; set; }
+        }
+
         async static Task<int> Main(string[] args) {
             if(args.Length != 1) {
                 PrintHelp();
@@ -29,14 +34,14 @@ namespace GitCoAuth {
 
         private static void PrintHelp() {
             Console.Error.WriteLine("  gitcoauth <username>");
-            Console.Error.WriteLine("Prints out a commit message trailer that indicates that GitHub user <username> contributed to a commit (and copied it to clipboard, if possible).");
+            Console.Error.WriteLine("Prints out a commit message trailer that indicates that GitHub user <username> contributed to a commit (and copies it to clipboard, if possible).");
         }
 
         private static async Task<(string Name, string Email)> GetUserData(string username) {
             var client = new RestClient("https://api.github.com");
 
             try {
-                var resp = await client.GetJsonAsync<UserProfile>($"/users/{username}");
+                var resp = await client.GetAsync<UserProfile>($"/users/{username}");
 
                 return (
                     resp.Name ?? username,
